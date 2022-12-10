@@ -10,6 +10,7 @@ const bot = new TelegramApi(token, opt);
 
 
 //start bot
+
 const start = async () => {
   bot.on("message", async (msg) => {
     const text = msg.text;
