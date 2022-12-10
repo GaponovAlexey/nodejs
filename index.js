@@ -55,13 +55,11 @@ const start = async () => {
     } else {
       return await bot.sendMessage(chatId, "не угадали", RestartGame);
     }
-
-    bot.sendMessage(chatId, `you change number ${data} and i ${chats[chatId]}`);
-    console.log(msg.data);
   });
 };
 
 //startGame
+
 const StartGame = async (chatId) => {
   await bot.sendMessage(chatId, `Сейчас я загадаю число от 0-9, отгадаешь?`);
   await bot.sendMessage(chatId, "what the number you want ?", gameOptions);
