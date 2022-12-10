@@ -40,7 +40,8 @@ const start = async () => {
     // end
     return bot.sendMessage(chatId, "i'm is not see command");
   });
-
+  
+  // callback
   bot.on("callback_query", async (msg) => {
     const data = msg.data;
     const chatId = msg.message.chat.id;
