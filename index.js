@@ -1,13 +1,11 @@
 require("dotenv").config();
-const {gameOptions, RestartGame} = require('./options')
+const { gameOptions, RestartGame } = require("./options");
 
 const TelegramApi = require("node-telegram-bot-api");
 const token = process.env.ENV_TOKEN;
 
 var opt = { polling: true };
 const bot = new TelegramApi(token, opt);
-
-
 
 //start bot
 
@@ -46,13 +44,11 @@ const start = async () => {
   bot.on("callback_query", async (msg) => {
     const data = msg.data;
     const chatId = msg.message.chat.id;
-    
+
     if (data === "/again") {
       return StartGame(chatId);
     }
     const randomNumber = Math.floor(Math.random() * 10);
-    console.log(randomNumber)
-    
 
     if (data == randomNumber) {
       return await bot.sendMessage(chatId, "Ура", RestartGame);
@@ -68,10 +64,8 @@ const start = async () => {
 //startGame
 const StartGame = async (chatId) => {
   await bot.sendMessage(chatId, `Сейчас я загадаю число от 0-9, отгадаешь?`);
-  function intervalFunc() {
-    return bot.sendMessage(chatId, "what the number you want ?", gameOptions);
-  }
-  return setTimeout(intervalFunc, 100);
+  await bot.sendMessage(chatId, "what the number you want ?", gameOptions);
+  return;
 };
 
 start();
