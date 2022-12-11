@@ -36,11 +36,11 @@ const start = async () => {
     if (text == "/game") {
       StartGame(chatId);
     }
-
+    setTimeout(Rest(), 3000);
     // end
     return bot.sendMessage(chatId, "i'm is not see command");
   });
-  
+
   // callback
   bot.on("callback_query", async (msg) => {
     const data = msg.data;
@@ -68,3 +68,10 @@ const StartGame = async (chatId) => {
 };
 
 start();
+
+function Rest() {
+  const restart = async () => {
+    const data = await fetch("https://nodejs-tg-bot.vercel.app/");
+  };
+  restart();
+}
