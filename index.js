@@ -13,6 +13,7 @@ const start = async () => {
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
+    
     // desc
     bot.setMyCommands([
       { command: "/start", description: "start app" },
@@ -36,11 +37,11 @@ const start = async () => {
     if (text == "/game") {
       StartGame(chatId);
     }
-    
+
     // end
     return bot.sendMessage(chatId, "i'm is not see command");
   });
-
+  
   // callback
   bot.on("callback_query", async (msg) => {
     const data = msg.data;
@@ -68,3 +69,4 @@ const StartGame = async (chatId) => {
 };
 
 start();
+
