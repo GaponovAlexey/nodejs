@@ -71,7 +71,7 @@ start();
 
 function Rest() {
   const restart = async () => {
-    const data = await fetch("https://nodejs-tg-bot.vercel.app/");
+    await fetch("https://nodejs-tg-bot.vercel.app/");
   };
   restart();
 }
