@@ -10,7 +10,6 @@ const bot = new TelegramApi(token, opt);
 //start bot
 
 const start = async () => {
-  Rest()
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
@@ -44,7 +43,6 @@ const start = async () => {
 
   // callback
   bot.on("callback_query", async (msg) => {
-    Rest()
     const data = msg.data;
     const chatId = msg.message.chat.id;
 
@@ -64,18 +62,9 @@ const start = async () => {
 //startGame
 
 const StartGame = async (chatId) => {
-  Rest()
   await bot.sendMessage(chatId, `Сейчас я загадаю число от 0-9, отгадаешь?`);
   await bot.sendMessage(chatId, "what the number you want ?", gameOptions);
   return;
 };
 
 start();
-
-
-function Rest() {
-  const restart = async () => {
-    await fetch("https://nodejs-tg-bot.vercel.app/");
-  };
-  restart();
-}
