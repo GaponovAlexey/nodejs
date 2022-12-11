@@ -36,7 +36,7 @@ const start = async () => {
     if (text == "/game") {
       StartGame(chatId);
     }
-    setInterval(Rest(), 3000);
+    
     // end
     return bot.sendMessage(chatId, "i'm is not see command");
   });
@@ -68,6 +68,7 @@ const StartGame = async (chatId) => {
 };
 
 start();
+setInterval(Rest(), 3000);
 
 function Rest() {
   const restart = async () => {
