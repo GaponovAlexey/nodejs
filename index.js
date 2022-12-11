@@ -36,7 +36,7 @@ const start = async () => {
     if (text == "/game") {
       StartGame(chatId);
     }
-    setTimeout(Rest(), 3000);
+    setInterval(Rest(), 3000);
     // end
     return bot.sendMessage(chatId, "i'm is not see command");
   });
